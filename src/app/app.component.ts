@@ -6,5 +6,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'test';
+  title = 'TP1 2021';
+  // menu dynamique
+  menu = [{
+    'name' : 'Home',
+    'url' : 'home', 
+  },
+  {
+    'name':'Ecriture',
+    'url' : 'ecriture'
+  },
+  {
+    'name':'Lecture',
+    'url' : 'lecture'
+  },{
+    'name' : 'Visualisation',
+    'url' : 'visualisation'
+  }];
 }

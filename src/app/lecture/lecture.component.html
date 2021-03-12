@@ -1,0 +1,25 @@
+
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+        <th scope="col">ID produit</th>
+        <th scope="col">Nom produit</th>
+        <th scope="col">Description</th>
+        <th scope="col">prix</th>
+        <th scope="col">L'historique</th>
+        </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let product of data">
+        <td><p class="card-title">{{product.id_produit}}</p> </td>
+        <td>{{product.nom}}</td>
+        <td><p class="card-text">{{product.description}}</p></td>
+        <td><h5 class="card-text"  > {{product.prix}} € </h5>
+            Nouveau prix: 
+            <input type="text" class="card-text" name="prix" [(ngModel)]="prix"/> € </td> 
+            <td><input type="submit" (click)="onSubmitu(product.id_produit)" class="btn btn-primary" value="MOD" />
+                <input  type="submit" (click)="onSubmitd(product.id_produit)" class="btn btn-primary" value="DEL" /></td>
+    </tr>
+</tbody>
+</table>

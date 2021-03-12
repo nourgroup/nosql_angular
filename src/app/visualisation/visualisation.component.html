@@ -1,0 +1,22 @@
+
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+        <th scope="col">Nom produit</th>
+        <th scope="col">Description</th>
+        <th scope="col">prix</th>
+        <th scope="col">L'historique</th>
+        </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let product of data">
+        <td>{{product.nom}}</td>
+        <td><p class="card-text">{{product.description}}</p></td>
+        <td><p class="card-text">{{product.prix}} € </p></td>
+
+        <td>
+            <button class="btn btn-dark">Voir le produit</button></td>
+    </tr>
+</tbody>
+</table>

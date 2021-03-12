@@ -1,0 +1,10 @@
+    <!--<form class="form-inline" method="POST"> -->
+<div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" [ngStyle]="{color: getColor()}" name="name" [(ngModel)]="product" class="form-control" placeholder="Enter Product Name" required/>
+    {{product}}
+</div>
+<button type="submit" name="submit" [disabled]="!isEnable()" class="btn btn-default" (click)="onSubmit()">Submit</button>
+
+<div *ngIf="mproduct!=null">Résultat :
+nom : {{mproduct.nom}} - prix : {{mproduct.prix}}</div>
