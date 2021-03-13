@@ -16,10 +16,13 @@ import { VisualisationComponent } from './visualisation/visualisation.component'
 import { LectureComponent } from './lecture/lecture.component';
 import { CurveComponent } from './curve/curve.component';
 
+import { ChartsModule } from 'ng2-charts';
+
+
 const appRoutes: Routes = [
   { path: 'home', component: AppTp1AngularComponent },
   { path: 'ecriture', component: EcrireComponent },
-  { path: 'curve', component: CurveComponent },
+  { path: 'curve/:id', component: CurveComponent },
   { path: 'lecture', component: LectureComponent },
   { path: 'visualisation', component: VisualisationComponent },
   { path: '', component: AppTp1AngularComponent }
@@ -41,7 +44,8 @@ const appRoutes: Routes = [
     BrowserModule,
     FormsModule,
     RouterModule.forRoot(appRoutes),
-    HttpClientModule
+    HttpClientModule,
+    ChartsModule
   ],
   providers: [{provide: APP_BASE_HREF, useValue: '/'},dataService], 
   bootstrap: [AppComponent]

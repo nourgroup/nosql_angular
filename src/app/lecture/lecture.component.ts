@@ -28,14 +28,14 @@ export class LectureComponent implements OnInit {
   }
 
   onSubmitu(id): void{    
-    this.mDataService.updateData(id,this.pr).subscribe(
+    this.mDataService.updateData(id,this.prix).subscribe(
       response => { 
         console.log(response)
       },
       error =>{
           console.log("error");
       });
-    alert(this.prix)
+      this.ngOnInit()
     
   }
   

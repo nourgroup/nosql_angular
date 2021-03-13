@@ -3,20 +3,22 @@
 <table class="table">
     <thead class="thead-dark">
         <tr>
-        <th scope="col">Nom produit</th>
-        <th scope="col">Description</th>
-        <th scope="col">prix</th>
-        <th scope="col">L'historique</th>
+            <th scope="col">ID produit</th>
+            <th scope="col">Nom produit</th>
+            <th scope="col">Description</th>
+            <th scope="col">prix</th>
+            <th scope="col">L'historique</th>
         </tr>
     </thead>
     <tbody>
     <tr *ngFor="let product of data">
+        <td>{{product.id_produit}}</td>
         <td>{{product.nom}}</td>
         <td><p class="card-text">{{product.description}}</p></td>
-        <td><p class="card-text">{{product.prix}} € </p></td>
+        <td><p class="card-text"> {{product.prix}}€ </p></td>
 
         <td>
-            <button class="btn btn-dark">Voir le produit</button></td>
+            <a class="btn btn-dark" [routerLink]="['/curve', product.id_produit]">Voir la courbe d'évolution </a></td>
     </tr>
 </tbody>
 </table>
