@@ -11,13 +11,31 @@ export class LectureComponent implements OnInit {
 
   data 
   prix
+  rechercher
   pr : ProductLimited
-  constructor(public mDataService: dataService) { 
-    
-  }
+  constructor(public mDataService: dataService) { }
 
   ngOnInit() {
     this.mDataService.getAllData().subscribe(
+      response => { 
+        console.log(response)
+        this.data = response.data
+      },
+      error =>{
+          console.log("error");
+      });
+  }
+  //https://www.angularjswiki.com/angular/ngmodelchange-change-angular/
+  RechercheChange(){
+    if(this.rechercher==''){
+      this.ngOnInit()
+    }else{
+      this.getDataWithName()
+    }
+  }
+
+  getDataWithName(){
+    this.mDataService.getData(this.rechercher).subscribe(
       response => { 
         console.log(response)
         this.data = response.data
@@ -35,7 +53,7 @@ export class LectureComponent implements OnInit {
       error =>{
           console.log("error");
       });
-      this.ngOnInit()
+      //this.ngOnInit()
     
   }
   

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit } from '@angular/core';
 import { dataService } from '../services/data.service';
 import { ChartDataSets, ChartOptions } from 'chart.js';
 import { Color, Label } from 'ng2-charts';
@@ -13,35 +13,40 @@ import { PrefixNot } from '@angular/compiler';
 
 // TODO https://www.positronx.io/angular-chart-js-tutorial-with-ng2-charts-examples/
 export class CurveComponent implements OnInit {
-
+  
   id 
-  evolutions
-  lineChartData: ChartDataSets[] 
-
-  lineChartLabels: Label[] = [];
 
   constructor(public mDataService: dataService,private _Activatedroute:ActivatedRoute) { 
     this.id=this._Activatedroute.snapshot.paramMap.get("id");
-    console.log(this.lineChartData[0].data)
+    //console.log(this.lineChartData[0].data)
+  }
+  ngAfterViewInit(){
+    
   }
 
-  ngOnInit() {
-    this.getData();
-    this.lineChartData = [
-      { data: this.evolutions.evolutions.prix, label: 'Crude oil prices' },
-    ];
-    this.lineChartLabels = this.evolutions.evolutions.date
+  ngAfterViewChecked(){
+    
   }
 
-  getData(): void{
+  ngOnInit(){
     this.mDataService.getDataForCurve(this.id).subscribe(
-      response => { 
-        this.evolutions = response.data
+      response => {
+        this.lineChartData = [
+          { 
+            data: response['data']['evolutions']['prix'],
+            label: 'Crude oil prices',
+          },
+        ];
+        this.lineChartLabels = response['data']['evolutions']['date']
+        console.log(this.lineChartData)
       },
       error =>{
           console.log("error");
       });
   }
+
+  lineChartData = []
+  lineChartLabels 
 
   lineChartOptions = {
     responsive: true,
@@ -57,5 +62,4 @@ export class CurveComponent implements OnInit {
   lineChartLegend = true;
   lineChartPlugins = [];
   lineChartType = 'line';
-
 }

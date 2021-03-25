@@ -18,7 +18,6 @@ import { CurveComponent } from './curve/curve.component';
 
 import { ChartsModule } from 'ng2-charts';
 
-
 const appRoutes: Routes = [
   { path: 'home', component: AppTp1AngularComponent },
   { path: 'ecriture', component: EcrireComponent },
