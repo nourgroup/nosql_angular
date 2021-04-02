@@ -20,7 +20,7 @@ export class dataService{
     getData(name): Observable<Response>{
         // API PHP
         //return this.mHttpClient.get<Response>(`http://localhost/tp1_m1dfs/api.php?name=${name}`);
-        // API nodejs DONE
+        // API nodejs TODO
         return this.mHttpClient.get<Response>(`http://localhost:4000/api/name/${name}`);
     }
 
@@ -34,22 +34,22 @@ export class dataService{
     /* insérer le produit {'nom':'Produit1','prix':20}*/
     insertData(pr : ProductLimited): Observable<Response> {
         // API PHP
-        return this.mHttpClient.post<Response>("http://localhost/tp1_m1dfs/api.php",{data: pr});
-        // API nodejs TODO
-        //return this.mHttpClient.post<Response>('http://localhost:4000/api/add',{data: pr});
+        //return this.mHttpClient.post<Response>("http://localhost/tp1_m1dfs/api.php",{data: pr});
+        // API nodejs DONE
+        return this.mHttpClient.post<Response>('http://localhost:4000/api/add',{data: pr});
     }
 
     updateData(id,value): Observable<Response> {
         //API PHP
         //return this.mHttpClient.put<Response>("http://localhost/tp1_m1dfs/api.php",{data: {id,value}});
         //API node js TODO
-        return this.mHttpClient.put<Response>(`http://localhost:4000/api/update/${id}/${value}`,{data: {id,value}});
+        return this.mHttpClient.put<Response>(`http://localhost:4000/api/update`,{data: {id,value}});
     }
 
     deleteData(id){
         //API PHP
         //return this.mHttpClient.delete("http://localhost/tp1_m1dfs/api.php",id);
-        // API nodejs TODO
+        // API nodejs DONE
         return this.mHttpClient.delete(`http://localhost:4000/api/delete/${id}`);
     }
 

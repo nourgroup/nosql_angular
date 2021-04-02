@@ -3,7 +3,7 @@
         <input class="form-control" type="text" name="recherche" [(ngModel)]="rechercher" (ngModelChange)="RechercheChange()" placeholder="rechercher"/>
     </div>
 </div>
-<table class="table">
+<table class="table table-striped">
     <thead class="thead-dark">
         <tr>
         <th scope="col">ID produit</th>
@@ -21,8 +21,8 @@
         <td><h5 class="card-text"  > {{product.prix}} € </h5>
             Nouveau prix: 
             <input type="text" class="card-text" name="prix" [(ngModel)]="prix"/> € </td> 
-            <td><input type="submit" (click)="onSubmitu(product.id_produit)" class="btn btn-primary" value="MOD" />
-                <input  type="submit" (click)="onSubmitd(product.id_produit)" class="btn btn-primary" value="DEL" /></td>
+            <td><input type="submit" (click)="onSubmitu(product.id_produit)" class="btn btn-outline-primary" value="MOD" />
+                <input  type="submit" (click)="onSubmitd(product.id_produit)" class="bi bi-trash btn btn-outline-danger" value="DEL" /></td>
     </tr>
 </tbody>
 </table>

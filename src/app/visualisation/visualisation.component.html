@@ -1,6 +1,6 @@
 
 
-<table class="table">
+<table class="table table-striped">
     <thead class="thead-dark">
         <tr>
             <th scope="col">ID produit</th>
@@ -18,7 +18,7 @@
         <td><p class="card-text"> {{product.prix}}€ </p></td>
 
         <td>
-            <a class="btn btn-dark" [routerLink]="['/curve', product.id_produit]">Voir la courbe d'évolution </a></td>
+            <a class="btn btn-outline-dark" [routerLink]="['/curve', product.id_produit]">Voir la courbe d'évolution </a></td>
     </tr>
 </tbody>
 </table>

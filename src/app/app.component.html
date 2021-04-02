@@ -8,9 +8,14 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <li *ngFor="let sousMenu of menu"><a class="nav-link" routerLinkActive="active" routerLink="{{sousMenu.url}}">{{sousMenu.name}}</a></li>
+        <li *ngFor="let sousMenu of menu"><a class="nav-link" routerLinkActive="active" routerLink="{{sousMenu.url}}" >{{sousMenu.name}}</a></li>
+        <select name="api" id="api" class="form-control">
+          <option value="php" selected>API PHP</option>
+          <option value="nodejs">API NodeJS</option>
+        </select>
       </ul>
     </div>
 </nav>
-    <router-outlet></router-outlet>
+
+    <router-outlet ></router-outlet>
 </html>

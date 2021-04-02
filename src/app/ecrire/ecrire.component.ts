@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,Input } from '@angular/core';
 import { dataService } from '../services/data.service';
 import { Message } from '../services/Message.class';
 import { Product } from '../form-search/product.class';
@@ -11,6 +11,7 @@ import { ProductLimited } from '../product-limited';
   styleUrls: ['./ecrire.component.css']
 })
 export class EcrireComponent implements OnInit {
+
   message : Message ;
   product: Product;
   pr = {} as  ProductLimited;

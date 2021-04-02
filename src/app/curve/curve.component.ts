@@ -18,7 +18,6 @@ export class CurveComponent implements OnInit {
 
   constructor(public mDataService: dataService,private _Activatedroute:ActivatedRoute) { 
     this.id=this._Activatedroute.snapshot.paramMap.get("id");
-    //console.log(this.lineChartData[0].data)
   }
   ngAfterViewInit(){
     
@@ -34,7 +33,7 @@ export class CurveComponent implements OnInit {
         this.lineChartData = [
           { 
             data: response['data']['evolutions']['prix'],
-            label: 'Crude oil prices',
+            label: 'prix',
           },
         ];
         this.lineChartLabels = response['data']['evolutions']['date']
@@ -55,7 +54,7 @@ export class CurveComponent implements OnInit {
   lineChartColors: Color[] = [
     {
       borderColor: 'black',
-      backgroundColor: 'rgba(255,255,0,0.28)',
+      backgroundColor: 'rgba(0,0,0,0)',
     },
   ];
 
