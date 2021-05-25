@@ -33,7 +33,7 @@ export class CurveComponent implements OnInit {
         this.lineChartData = [
           { 
             data: response['data']['evolutions']['prix'],
-            label: 'prix',
+            label: 'prix : '+response['data']['nom'],
           },
         ];
         this.lineChartLabels = response['data']['evolutions']['date']
