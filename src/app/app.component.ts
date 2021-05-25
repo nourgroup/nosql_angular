@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-//import { CommonService } from "services/CommonService.service';
 
 @Component({
   selector: 'app-root',
@@ -8,9 +7,7 @@ import { Component, Input } from '@angular/core';
 })
 export class AppComponent {
   
-  //constructor(private service: CommonService){}
-
-  title = 'TP1 2021';
+  title = 'mongodb 2021';
   // menu dynamique
   menu = [{
     'name' : 'Home',
@@ -23,10 +20,9 @@ export class AppComponent {
   {
     'name':'Lecture',
     'url' : 'lecture'
-  },{
+  },
+  {
     'name' : 'Visualisation',
     'url' : 'visualisation'
   }];
-
-
 }

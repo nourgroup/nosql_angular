@@ -1,4 +1,4 @@
-import { Component, OnInit ,Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { dataService } from '../services/data.service';
 import { Message } from '../services/Message.class';
 import { Product } from '../form-search/product.class';
@@ -11,10 +11,9 @@ import { ProductLimited } from '../product-limited';
   styleUrls: ['./ecrire.component.css']
 })
 export class EcrireComponent implements OnInit {
-
-  message : Message ;
-  product: Product;
+  //message : Message ;
   pr = {} as  ProductLimited;
+  data 
 
   constructor(private mService : dataService) { 
     this.isDisabled();
@@ -22,6 +21,14 @@ export class EcrireComponent implements OnInit {
 
   ngOnInit(){
     this.isDisabled();
+    this.mService.getCategorie().subscribe(
+      response => { 
+        console.log(response)
+        this.data = response.data
+      },
+      error =>{
+          console.log("error");
+      });
   }
 
   onSubmit(): void{
@@ -37,15 +44,14 @@ export class EcrireComponent implements OnInit {
   }
 
   isDisabled(){
-    if(this.pr == null || (this.pr.name == null) && (this.pr.price == null)){
+    if(this.pr == null || (this.pr.name == "") && (this.pr.price == null) && (this.pr.description == "")){
       return true;
     }else{
       return false;
     }
   }
-
   reset(){
-    this.pr = {'name' : '','price':null};
+    this.pr = {'name' : '','price':null,'categorie': null,'description' : ''};
   }
 }
 

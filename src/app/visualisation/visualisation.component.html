@@ -3,17 +3,20 @@
 <table class="table table-striped">
     <thead class="thead-dark">
         <tr>
-            <th scope="col">ID produit</th>
+            <!--<th scope="col">ID produit</th>-->
             <th scope="col">Nom produit</th>
+            <th scope="col">Categorie</th>
             <th scope="col">Description</th>
             <th scope="col">prix</th>
             <th scope="col">L'historique</th>
+
         </tr>
     </thead>
     <tbody>
     <tr *ngFor="let product of data">
-        <td>{{product.id_produit}}</td>
+        <!--<td>{{product.id_produit}}</td>-->
         <td>{{product.nom}}</td>
+        <td>{{product.categorie.nom_categorie}}</td>
         <td><p class="card-text">{{product.description}}</p></td>
         <td><p class="card-text"> {{product.prix}}€ </p></td>
 

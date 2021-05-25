@@ -10,7 +10,7 @@ import { ProductLimited } from '../product-limited';
 export class LectureComponent implements OnInit {
 
   data 
-  prix
+  prix = null
   rechercher
   pr : ProductLimited
   constructor(public mDataService: dataService) { }

@@ -59,4 +59,9 @@ export class dataService{
         // API nodejs DONE
         return this.mHttpClient.get<Response>(`http://localhost:4000/api/id/${id}`);
     }
+
+    getCategorie(){
+        // API nodejs DONE
+        return this.mHttpClient.get<Response>(`http://localhost:4000/api/categorie`);
+    }
 }
