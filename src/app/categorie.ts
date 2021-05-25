@@ -1,4 +1,5 @@
 export interface Categorie {
     id_categorie? : number;
     nom_categorie? : String;
+    active? : boolean;
 }

@@ -3,6 +3,7 @@ import { dataService } from '../services/data.service';
 import { Message } from '../services/Message.class';
 import { Product } from '../form-search/product.class';
 import { ProductLimited } from '../product-limited';
+import { Categorie } from '../categorie';
 
 
 @Component({
@@ -12,7 +13,11 @@ import { ProductLimited } from '../product-limited';
 })
 export class EcrireComponent implements OnInit {
   //message : Message ;
-  pr = {} as  ProductLimited;
+  pr = {} as  ProductLimited
+  /*categorie = {
+    'id_categorie' : null,
+    'nom_categorie' : ""
+  } as Categorie*/
   data 
 
   constructor(private mService : dataService) { 
@@ -25,22 +30,22 @@ export class EcrireComponent implements OnInit {
       response => { 
         console.log(response)
         this.data = response.data
+        this.data.push({'id_categorie':null,'nom_categorie':'-- Ajouter une nouvelle catégorie --','active':true})
       },
       error =>{
           console.log("error");
       });
   }
 
-  onSubmit(): void{
+  onSubmit(): void{  
     this.mService.insertData(this.pr).subscribe(
       response => { 
         console.log(response)
       },
       error =>{
-          console.log("error");
+          console.log(error);
       });
-    this.reset();
-    
+    this.reset(); 
   }
 
   isDisabled(){
@@ -53,5 +58,4 @@ export class EcrireComponent implements OnInit {
   reset(){
     this.pr = {'name' : '','price':null,'categorie': null,'description' : ''};
   }
-}
-
+} 
